@@ -1,0 +1,73 @@
+
+// Fast Symbol Changer - Forex Robot Easy
+// Developer's Site: forexroboteasy.com
+// Developed by: Forex Robot Easy Team
+
+// Include necessary libraries
+#include <Trade\Trade.mqh>
+#include <SymbolInfo.mqh>
+
+// Define maximum number of custom symbols
+#define MAX_CUSTOM_SYMBOLS 5
+
+// Define maximum number of currency pairs
+#define MAX_CURRENCY_PAIRS 28
+
+// Create an array to store currency pairs
+string currencyPairs[MAX_CURRENCY_PAIRS];
+
+// Create an array to store custom symbols
+string customSymbols[MAX_CUSTOM_SYMBOLS];
+
+// Initialize trade object
+CTrade trade;
+
+// Function to initialize currency pairs
+void initializeCurrencyPairs()
+{
+    currencyPairs[0] = 'EURUSD';
+    currencyPairs[1] = 'GBPUSD';
+    currencyPairs[2] = 'USDJPY';
+    // Add more currency pairs here...
+}
+
+// Function to initialize custom symbols
+void initializeCustomSymbols()
+{
+    customSymbols[0] = 'GOLD';
+    customSymbols[1] = 'SILVER';
+    customSymbols[2] = 'BTCUSD';
+    // Add more custom symbols here...
+}
+
+// Function to select currency pair
+void selectCurrencyPair(string pair)
+{
+    trade.Symbol(pair);
+    // Add code to update market data for the selected currency pair
+    // This can include updating indicators, fetching latest prices, etc.
+}
+
+// Function to select custom symbol
+void selectCustomSymbol(string symbol)
+{
+    trade.Symbol(symbol);
+    // Add code to update market data for the selected custom symbol
+    // This can include updating indicators, fetching latest prices, etc.
+}
+
+// Entry point of the program
+void OnStart()
+{
+    initializeCurrencyPairs();
+    initializeCustomSymbols();
+
+    // Example usage of the Fast Symbol Changer
+    selectCurrencyPair(currencyPairs[0]); // Select EURUSD as the trading pair
+    selectCustomSymbol(customSymbols[0]); // Select GOLD as the custom symbol
+
+    // Add code to execute trading operations based on the selected symbol
+    // This can include placing orders, modifying orders, closing positions, etc.
+
+    // Add code to handle stop conditions and exit the program gracefully
+}
